@@ -12,7 +12,7 @@ class GameTracker(object):
     def start_game_tracker(self):
         """ Begin Tracking the game """
         while True:
-            self.update_lights()
+            self.track_game()
             if self.is_end_of_game():
                 break
             sleep(10)

@@ -41,11 +41,11 @@ class CFBGameTracker(GameTracker):
     def change_lights_based_on_score_type(self, score_type, color, which_lights):
         """ Change the lighting based on what is happening in the football game """
         if not score_type:
-            self.house_lights.custom_color(which_lights, color)
+            self.light_controller.custom_color(which_lights, color)
         if score_type == "safty" or score_type == "field goal":
-            self.house_lights.field_goal()
+            self.light_controller.field_goal()
         if score_type == "touchdown":
-            self.house_lights.touchdown()
+            self.light_controller.touchdown()
 
     def get_score_type(self, prev_score, curr_score):
         delta = curr_score - prev_score

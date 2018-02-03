@@ -8,7 +8,7 @@ from game_tracker import GameTracker
 from nfl_team_colors import NFLTeamColors
 
 class NFLGameTracker(GameTracker):
-    NFL_START_DATE = datetime.date(2017, 9, 3)
+    NFL_START_DATE = datetime.date(2018, 1, 6)
 
     def __init__(self, game_id, light_control, verbose=True):
         GameTracker.__init__(self, game_id, light_control, verbose)
@@ -38,8 +38,9 @@ class NFLGameTracker(GameTracker):
 
     @staticmethod
     def get_game_list():
-        return nflgame.games(NFLGameTracker.NFL_START_DATE.year,
-                             week=NFLGameTracker.get_curr_week())
+        return nflgame.live.current_games(kind='POST')
+        # games(NFLGameTracker.NFL_START_DATE.year,
+        #                      week=NFLGameTracker.get_curr_week())
 
     def track_game(self):
 
